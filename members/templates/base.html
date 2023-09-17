@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Management</title>
+    <!-- Add Bootstrap CSS link here -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'style.css'%}">
+
+</head>
+<body>
+  <div class="topnav">
+    <a href="/">HOME</a> |
+   <a href="/members">MEMBERS</a> |
+    <a href="/topics">ENTRY-INFO</a> |  |
+    <!-- scores -->
+    <a href="/score_results">SCORES</a>
+    |
+     {% if user.is_authenticated %}
+     Hello, {{ user.username }}.
+     <a href="/logout">Log out</a>
+     {% endif %}
+  </div>
+  <div>
+    {% if user.is_authenticated %}
+     Hello, {{ user.username }}.
+     <a href="/logout">Log out</a>
+     {% else %}
+     <a href="{% url 'register' %}">Register</a> -
+     <a href="{% url 'login' %}">Log in</a>
+    {% endif %}
+
+
+
+  </div>
+
+  <div class="container mt-4">
+        {% block content %}
+        {% endblock %}
+  </div>
+    <!-- Add Bootstrap JS and jQuery links here -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Member List</h1>
+  <ul class="list-group">
+    {% for member in members %}
+      <li onclick="window.location = 'details/{{ member.id }}'"class="list-group-item" ></a>
+        {{ member.firstname }} {{ member.lastname }}
+        <span class="float-right">
+          <a href="{% url 'update_member' member.pk %}" class="btn btn-sm btn-primary">Edit</a>
+          <a href="{% url 'delete_member' member.pk %}" class="btn btn-sm btn-danger">Delete</a>
+        </span>
+        
+      </li>
+      {% empty %}
+      <li>No members have been added yet.</li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'create_member' %}" class="btn btn-success mt-3">Add Member</a>
+{% endblock %}

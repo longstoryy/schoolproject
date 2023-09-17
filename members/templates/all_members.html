@@ -1,0 +1,38 @@
+{%extends "master.html"%}
+{% block title %}
+My school list of members
+{% endblock %}
+ 
+
+{% block content %}
+<div class="mycard">
+  <h1>Members</h1>
+  
+<ul>
+  <table border="1">
+    <tr>
+      <th>ID</th>
+      <th>FullName</th>
+      
+    </tr>
+    {% for x in mymembers %}
+
+    
+    
+    
+      <tr>
+        <td>
+          {{x.id}}
+        </td>
+        <td>
+          <li onclick="window.location = 'details/{{ x.id }}'">{{ x.firstname }} {{ x.lastname }}</a></li>
+          
+        </td>
+     
+      </tr>
+   {% endfor %}
+  </table>
+</ul>
+<a href="{% url 'create_member' %}" class="btn btn-success mt-3">Add Member</a>
+
+{% endblock %}

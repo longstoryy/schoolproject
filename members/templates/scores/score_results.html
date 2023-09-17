@@ -1,0 +1,34 @@
+<!-- scores/templates/scores/score_results.html -->
+{%extends "base.html"%}
+{% block content %}
+<table>
+    <thead>
+        <tr>
+            <th>Position</th>
+            <th>Name</th>
+            <th>Score 1</th>
+            <th>Score 2</th>
+            <th>Score 3</th>
+            <th>Score 4</th>
+            <th>Total</th>
+            <th>Average</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pupil in pupils %}
+            <tr>
+             <td>{{forloop.counter}}</td>
+             <td>{{ pupil.name }}</td>
+             <td>{{ pupil.score_1 }}</td>
+             <td>{{ pupil.score_2 }}</td>
+             <td>{{ pupil.score_3 }}</td>
+             <td>{{ pupil.score_4 }}</td>
+             <td>{{ pupil.total }}</td>
+             <td>{{ pupil.average }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'score_form' %}">Enter Scores</a>
+{% endblock %}
+

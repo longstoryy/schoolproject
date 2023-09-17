@@ -1,0 +1,8 @@
+<!-- scores/templates/scores/score_form.html -->
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit Scores</button>
+</form>
+<!-- scores/templates/scores/score_form.html -->
+<a href="{% url 'score_results' %}">View Results</a>

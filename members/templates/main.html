@@ -1,0 +1,20 @@
+{% extends "master.html" %}
+
+{% block title %}
+  My School Platform
+{% endblock %}
+
+{% block content %}
+  <div class="main">
+  <h1>My School Page</h1>
+
+  <h3>Members</h3>
+  
+  <p>Check out all our <a href="members/">members</a></p>
+  </div>
+  <div>
+    <a href="{% url 'custom_logout' %}">Logout</a>
+    
+
+  </div>
+{% endblock %}
